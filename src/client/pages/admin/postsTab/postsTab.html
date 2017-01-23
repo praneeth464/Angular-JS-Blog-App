@@ -1,0 +1,8 @@
+<div>
+    <h1>{{ vm.name }}</h1>
+</div>
+<ng-switch on="vm.option">
+    <create-post ng-switch-when="1"></create-post>
+    <display-post ng-switch-when="2"></display-post>
+    <create-post ng-switch-default></create-post>
+</ng-switch>

@@ -1,0 +1,33 @@
+<br>
+<div>
+    <div class="row">
+        <div class="col-md-11">
+            <button ng-disabled="form.$invalid" ng-click="vm.save()" class="btn btn-md btn-primary">Save</button>
+            <button ng-click="vm.close()" class="btn btn-md btn-danger">Close</button>
+        </div>
+    </div>
+    <br>
+    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+    <div class="panel-body">
+        <form name="form" class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-1 control-label">Name</label>
+                <div class="col-sm-11" ng-class="class.name">
+                    <input ng-change="vm.nameChange()" type="text" required ng-model="vm.name" class="form-control" placeholder="Name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-1 control-label">Email</label>
+                <div class="col-sm-11" ng-class="class.email">
+                    <input required ng-change="vm.emailChange(this)" type="email" ng-model="vm.email" class="form-control" placeholder="Email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-1 control-label">Password</label>
+                <div class="col-sm-11">
+                    <input type="password" ng-change="vm.passwordChange()" ng-model="vm.password" class="form-control" placeholder="Password">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

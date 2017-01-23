@@ -1,0 +1,35 @@
+<br>
+<div class="row">
+    <div class="col-md-11">
+        <button ng-click="vm.addPost()" class="btn btn-md btn-success">+ Add Post</button>
+    </div>
+</div>
+<div class="row" ng-hide="vm.filteredItems.length === 0">
+    <div class="col-md-11 col-sm-11">
+        <br>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th ng-click="flip('name')">Event Name</th>
+                    <th ng-click="flip('date')">Event Date</th>
+                    <th>Update</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in vm.filteredItems">
+                    <td>{{ item.title }}</td>
+                    <td>{{ item.date | date:'fullDate'}}</td>
+                    <td>
+                        <button style="width: 80px;" ng-click="vm.updatePost( item._id )" type="submit" class="btn btn-xs" ng-class="item.published ? 'btn-default' : 'btn-success'">{{item.published ? 'Unpublish' : 'Publish'}}</button>
+                        <button ng-click="vm.editPost(item._id)" type="submit" class="btn btn-xs btn-warning">Edit</button>
+                        <button ng-click="vm.deletePost(item._id)" type="submit" class="btn btn-xs btn-danger">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div>
+    <uib-pagination class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" ng-show="vm.items.length > vm.itemsPerPage" items-per-page="vm.itemsPerPage" ng-model="vm.currentPage" total-items="vm.items.length" max-size="vm.maxSize" boundary-links="true" ng-change="vm.pageChanged()">
+    </uib-pagination>
+</div>

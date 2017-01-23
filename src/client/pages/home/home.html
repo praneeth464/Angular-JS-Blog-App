@@ -1,0 +1,12 @@
+<div class="container">
+    <br>
+    <div ng-repeat="post in vm.posts">
+        <div class="media">
+            <div class="media-body">
+                <h4 class="media-heading"><a href="{{post.slug}}">{{post.title}}</a></h4>
+                <p>{{post.description}}</p>
+            </div>
+        </div>
+        <br>
+    </div>
+</div>
